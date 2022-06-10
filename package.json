@@ -25,9 +25,11 @@
     "@nestjs/core": "^8.0.0",
     "@nestjs/platform-express": "^8.0.0",
     "@richienb/vlc": "^3.0.2",
+    "@types/webpack": "^5.28.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "rxjs": "^7.2.0"
+    "rxjs": "^7.2.0",
+    "webpack": "^5.73.0"
   },
   "devDependencies": {
     "@nestjs/cli": "^8.0.0",
