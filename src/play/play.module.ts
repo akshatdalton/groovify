@@ -1,6 +1,6 @@
-import { PlayController } from './play.controller';
-import { Module } from '@nestjs/common';
-import { PlayService } from './play.service';
+import { PlayController } from "./play.controller";
+import { Module } from "@nestjs/common";
+import { PlayService } from "./play.service";
 
 @Module({
     imports: [],
