@@ -3,13 +3,14 @@ import { pid } from "process";
 import expandTilde from "expand-tilde";
 import { writeFileSync } from "fs";
 import path from 'path';
+import { get_base_filepath } from '../utils/utils';
 
 @Injectable()
 export class PlayService {
-    async play() {
-        console.log("process_id = ", process.pid);
-        // console.log(path.join("~/.groovify", "audio.mp3"))
-        let song_path: string = path.join(expandTilde("~"), "/", ".groovify", "AUDIO.mp3");
+    async play(query: string) {
+        console.log("query = ", query);
+        const base_filepath = get_base_filepath();
+        const song_path = path.join(base_filepath, "AUDIO.mp3");
         const vlcPlayer = await (eval(`import('@richienb/vlc')`) as Promise<
             typeof import("@richienb/vlc")
         >);
@@ -19,9 +20,6 @@ export class PlayService {
         await vlc.command("in_play", {
             input: song_path,
         });
-        console.log("pid = ", pid);
-        writeFileSync("./test.txt", pid.toString());
-        // await vlc.command("pl_stop");
         console.log("vlc played");
     }
 }

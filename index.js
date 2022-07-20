@@ -5,8 +5,13 @@ const expandTilde = require("expand-tilde");
 const fs = require("fs");
 const program = require("commander");
 const path = require("path");
+const axios = require('axios').default;
 
 program.version("1.0.0").description("Groovify");
+
+const server = axios.create({
+	baseURL: "http://127.0.0.1:3000"
+});
 
 // import ytdl from "ytdl-core";
 // // TypeScript: import ytdl from 'ytdl-core'; with --esModuleInterop
@@ -17,6 +22,8 @@ program.version("1.0.0").description("Groovify");
 //   .pipe(fs.createWriteStream('test.mp3'));
 
 const start_app = (dev = true) => {
+	// Stop any already running app.
+	stop_app();
     let arg;
     if (dev) {
         arg = "start:dev";
@@ -55,7 +62,6 @@ const check_and_create_base_filepath = () => {
     }
 };
 
-
 const save_pid = (pid) => {
     check_and_create_base_filepath();
     const pid_filepath = get_pid_filepath();
@@ -90,7 +96,9 @@ program
     .argument("<query>")
     .description("Plays a song for the given 'query'")
     .action((query) => {
-        console.log("query = ", query);
+        server.get("/").then((res) => {
+			console.log("data =", res.data);
+		})
     });
 
 program.parse();
