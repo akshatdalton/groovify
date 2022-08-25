@@ -77,7 +77,7 @@ async function fun () {
 	const vlc = await createVlc();
 	console.log("vlc created")
 	await vlc.command("in_play", {
-		input: "test.mp3",
+		input: "audio.mp3",
 	});
 
 	// await vlc.command("pl_stop");

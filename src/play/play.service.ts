@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable } from "@nestjs/common";
 // import createVlc from "@richienb/vlc";
 
 @Injectable()
@@ -14,6 +14,6 @@ export class PlayService {
         // });
 
         // await vlc.command("pl_stop");
-        console.log("vlc played")
+        console.log("vlc played");
     }
 }
