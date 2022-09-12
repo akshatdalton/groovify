@@ -5,12 +5,12 @@ const expandTilde = require("expand-tilde");
 const fs = require("fs");
 const program = require("commander");
 const path = require("path");
-const axios = require('axios').default;
+const axios = require("axios").default;
 
 program.version("1.0.0").description("Groovify");
 
 const server = axios.create({
-	baseURL: "http://127.0.0.1:3000"
+    baseURL: "http://127.0.0.1:3000",
 });
 
 // import ytdl from "ytdl-core";
@@ -22,8 +22,8 @@ const server = axios.create({
 //   .pipe(fs.createWriteStream('test.mp3'));
 
 const start_app = (dev = true) => {
-	// Stop any already running app.
-	stop_app();
+    // Stop any already running app.
+    stop_app();
     let arg;
     if (dev) {
         arg = "start:dev";
@@ -39,11 +39,10 @@ const start_app = (dev = true) => {
 };
 
 const stop_app = () => {
-    const pid = get_pid();
-	try {
-    	process.kill(-pid);
-	} catch (_) {
-	}
+    try {
+        const pid = get_pid();
+        process.kill(-pid);
+    } catch (_) {}
 };
 
 const get_base_filepath = () => {
@@ -51,8 +50,8 @@ const get_base_filepath = () => {
 };
 
 const get_pid_filepath = () => {
-	const base_filepath = get_base_filepath();
-	return path.join(base_filepath, "pid.txt");
+    const base_filepath = get_base_filepath();
+    return path.join(base_filepath, "pid.txt");
 };
 
 const check_and_create_base_filepath = () => {
@@ -80,7 +79,7 @@ program
     .description("Starts the app server")
     .action(() => {
         console.log("Start the app");
-        start_app(dev = true);
+        start_app((dev = true));
     });
 
 program
@@ -96,9 +95,9 @@ program
     .argument("<query>")
     .description("Plays a song for the given 'query'")
     .action((query) => {
-        server.get("/").then((res) => {
-			console.log("data =", res.data);
-		})
+        server.post("/play").then((res) => {
+            console.log("res =", res);
+        });
     });
 
 program.parse();

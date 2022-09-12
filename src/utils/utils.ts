@@ -1,6 +1,6 @@
-import path from 'path';
-import expandTilde from 'expand-tilde';
-import fs from 'fs';
+import path from "path";
+import expandTilde from "expand-tilde";
+import fs from "fs";
 
 export const get_base_filepath = () => {
     return path.join(expandTilde("~"), "/", ".groovify");

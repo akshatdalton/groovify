@@ -8,6 +8,7 @@ export class PlayController {
 
     @Post()
     playSong(@Body() playSongDto: PlaySongDto): string {
+        console.log("query = ", playSongDto.query);
         this.playService.play(playSongDto.query);
         return playSongDto.query;
     }
