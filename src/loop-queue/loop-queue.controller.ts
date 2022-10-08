@@ -1,12 +1,13 @@
+import { LoopQueueDto } from "./../dto/loopQueue.dto";
 import { LoopQueueService } from "./loop-queue.service";
-import { Controller, Patch } from "@nestjs/common";
+import { Body, Controller, Patch } from "@nestjs/common";
 
 @Controller("loop-queue")
 export class LoopQueueController {
     constructor(private readonly loopQueueService: LoopQueueService) {}
 
     @Patch()
-    async loopQueue() {
-        await this.loopQueueService.loopQueue();
+    async setloopQueue(@Body() loopQueueDto: LoopQueueDto) {
+        await this.loopQueueService.loopQueue(loopQueueDto.loop);
     }
 }
