@@ -24,6 +24,9 @@ import { SkipService } from "./skip/skip.service";
 import { BackModule } from "./back/back.module";
 import { BackController } from "./back/back.controller";
 import { BackService } from "./back/back.service";
+import { ClearModule } from "./clear/clear.module";
+import { ClearController } from "./clear/clear.controller";
+import { ClearService } from "./clear/clear.service";
 
 @Module({
     imports: [
@@ -35,6 +38,7 @@ import { BackService } from "./back/back.service";
         QueueModule,
         SkipModule,
         BackModule,
+        ClearModule,
     ],
     controllers: [
         AppController,
@@ -45,6 +49,7 @@ import { BackService } from "./back/back.service";
         QueueController,
         SkipController,
         BackController,
+        ClearController,
     ],
     providers: [
         AppService,
@@ -56,6 +61,7 @@ import { BackService } from "./back/back.service";
         QueueService,
         SkipService,
         BackService,
+        ClearService,
     ],
 })
 export class AppModule {}
