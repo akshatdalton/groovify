@@ -13,15 +13,30 @@ import { SeekModule } from "./seek/seek.module";
 import { EnqueueController } from "./enqueue/enqueue.controller";
 import { EnqueueService } from "./enqueue/enqueue.service";
 import { EnqueueModule } from "./enqueue/enqueue.module";
+import { YoutubeModule } from "./youtube/youtube.module";
+import { YoutubeService } from "./youtube/youtube.service";
+import { QueueModule } from "./queue/queue.module";
+import { QueueService } from "./queue/queue.service";
+import { QueueController } from "./queue/queue.controller";
+import { SkipController } from './skip/skip.controller';
 
 @Module({
-    imports: [PlayModule, PauseModule, SeekModule, EnqueueModule],
+    imports: [
+        PlayModule,
+        PauseModule,
+        SeekModule,
+        EnqueueModule,
+        YoutubeModule,
+        QueueModule,
+    ],
     controllers: [
         AppController,
         PlayController,
         PauseController,
         SeekController,
         EnqueueController,
+        QueueController,
+        SkipController,
     ],
     providers: [
         AppService,
@@ -29,6 +44,8 @@ import { EnqueueModule } from "./enqueue/enqueue.module";
         PauseService,
         SeekService,
         EnqueueService,
+        YoutubeService,
+        QueueService,
     ],
 })
 export class AppModule {}

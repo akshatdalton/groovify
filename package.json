@@ -33,11 +33,16 @@
         "axios": "^0.27.2",
         "commander": "^9.3.0",
         "expand-tilde": "^2.0.2",
+        "node-vlc-http": "^1.2.0",
         "reflect-metadata": "^0.1.13",
         "rimraf": "^3.0.2",
         "rxjs": "^7.2.0",
+        "vlc-client": "^1.0.6",
+        "vlc-command": "^1.2.0",
+        "vlc-simple-player": "^0.5.1",
         "webpack": "^5.73.0",
-        "youtube-search-without-api-key": "^1.0.7"
+        "youtube-search-without-api-key": "^1.0.7",
+        "ytdl-core": "^4.11.2"
     },
     "devDependencies": {
         "@nestjs/cli": "^8.0.0",

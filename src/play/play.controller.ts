@@ -1,15 +1,24 @@
 import { Body, Controller, Post } from "@nestjs/common";
-import { PlaySongDto } from "../dto/play.dto";
+import { YoutubeService } from "src/youtube/youtube.service";
+import { PlaySongDto } from "src/dto/play.dto";
 import { PlayService } from "./play.service";
 
 @Controller("play")
 export class PlayController {
-    constructor(private readonly playService: PlayService) {}
+    constructor(
+        private readonly playService: PlayService,
+        private readonly youtubeService: YoutubeService,
+    ) {}
 
     @Post()
-    playSong(@Body() playSongDto: PlaySongDto): string {
-        console.log("query = ", playSongDto.query);
-        this.playService.play(playSongDto.query);
-        return playSongDto.query;
+    async playSong(@Body() playSongDto: PlaySongDto): Promise<string> {
+        const { query } = playSongDto;
+        const result = await this.youtubeService.searchQuery(query);
+        const songPath = await this.youtubeService.downloadYouTubeMusic(
+            result[0]["url"],
+            query,
+        );
+        await this.playService.play(songPath);
+        return query;
     }
 }

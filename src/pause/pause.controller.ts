@@ -6,7 +6,7 @@ export class PauseController {
     constructor(private readonly pauseService: PauseService) {}
 
     @Put()
-    pauseSong(): void {
-        this.pauseService.pause();
+    async pauseSong(): Promise<void> {
+        await this.pauseService.pause();
     }
 }

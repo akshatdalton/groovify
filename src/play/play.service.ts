@@ -1,14 +1,20 @@
 import { vlcApp } from "./../vlc/vlc";
 import { Injectable } from "@nestjs/common";
-import path from "path";
-import { get_base_filepath } from "../utils/utils";
 
 @Injectable()
 export class PlayService {
-    async play(query: string): Promise<void> {
-        console.log("query = ", query);
-        const base_filepath = get_base_filepath();
-        const song_path = path.join(base_filepath, query);
-        await vlcApp.addSong(song_path);
+    async play(songPathUri: string): Promise<void> {
+        await vlcApp.vlcService.pause();
+        // await vlcApp.vlcService.playFile(songPath, { wait: true });
+        // await vlcApp.vlcService.emptyPlaylist();
+        // await vlcApp.vlcService.addToPlaylist(songPathUri);
+        // const firstSong = await this.getFirstSongFromPlaylist();
+        // await vlcApp.vlcService.playFromPlaylist(firstSong.id);
+        await vlcApp.vlcService.playFile(songPathUri);
+    }
+
+    private async getFirstSongFromPlaylist() {
+        const vlcPlaylist = await vlcApp.vlcService.getPlaylist();
+        return vlcPlaylist[0];
     }
 }

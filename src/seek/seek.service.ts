@@ -4,7 +4,6 @@ import { Injectable } from "@nestjs/common";
 @Injectable()
 export class SeekService {
     async seekSong(val: string): Promise<void> {
-        console.log("val = ", val);
-        await vlcApp.seekSong(val);
+        await vlcApp.vlcService.jumpForward(val);
     }
 }

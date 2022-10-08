@@ -13,6 +13,8 @@ const server = axios.create({
     baseURL: "http://127.0.0.1:3000",
 });
 
+// MAKE THIS APP PORT CONFIGURABLE BY THE USER
+
 // import ytdl from "ytdl-core";
 // // TypeScript: import ytdl from 'ytdl-core'; with --esModuleInterop
 // // TypeScript: import * as ytdl from 'ytdl-core'; with --allowSyntheticDefaultImports
