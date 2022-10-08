@@ -9,4 +9,9 @@ export class LoopSongController {
     async loopSong() {
         await this.loopSongService.loopSong();
     }
+
+    @Patch()
+    async unloopSong() {
+        await this.loopSongService.unloopSong();
+    }
 }

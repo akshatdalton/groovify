@@ -6,4 +6,8 @@ export class LoopSongService {
     async loopSong(): Promise<void> {
         await vlcApp.vlcService.setRepeating(true);
     }
+
+    async unloopSong(): Promise<void> {
+        await vlcApp.vlcService.setRepeating(false);
+    }
 }
