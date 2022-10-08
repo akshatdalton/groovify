@@ -21,6 +21,9 @@ import { QueueController } from "./queue/queue.controller";
 import { SkipController } from "./skip/skip.controller";
 import { SkipModule } from "./skip/skip.module";
 import { SkipService } from "./skip/skip.service";
+import { BackModule } from "./back/back.module";
+import { BackController } from "./back/back.controller";
+import { BackService } from "./back/back.service";
 
 @Module({
     imports: [
@@ -31,6 +34,7 @@ import { SkipService } from "./skip/skip.service";
         YoutubeModule,
         QueueModule,
         SkipModule,
+        BackModule,
     ],
     controllers: [
         AppController,
@@ -40,6 +44,7 @@ import { SkipService } from "./skip/skip.service";
         EnqueueController,
         QueueController,
         SkipController,
+        BackController,
     ],
     providers: [
         AppService,
@@ -50,6 +55,7 @@ import { SkipService } from "./skip/skip.service";
         YoutubeService,
         QueueService,
         SkipService,
+        BackService,
     ],
 })
 export class AppModule {}
