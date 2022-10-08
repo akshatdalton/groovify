@@ -3,11 +3,7 @@ import { vlcApp } from "./../vlc/vlc";
 
 @Injectable()
 export class LoopSongService {
-    async loopSong(): Promise<void> {
-        await vlcApp.vlcService.setRepeating(true);
-    }
-
-    async unloopSong(): Promise<void> {
-        await vlcApp.vlcService.setRepeating(false);
+    async loopSong(loop: boolean): Promise<void> {
+        await vlcApp.vlcService.setRepeating(loop);
     }
 }
