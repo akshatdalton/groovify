@@ -14,11 +14,7 @@ export class PlayController {
     async playSong(@Body() playSongDto: PlaySongDto): Promise<string> {
         const { query } = playSongDto;
         const result = await this.youtubeService.searchQuery(query);
-        const songPath = await this.youtubeService.downloadYouTubeMusic(
-            result[0]["url"],
-            query,
-        );
-        await this.playService.play(songPath);
+        await this.playService.play(result[0].url);
         return query;
     }
 }

@@ -14,11 +14,7 @@ export class EnqueueController {
     async enqueueSong(@Body() enqueueSongDto: EnqueueSongDto): Promise<string> {
         const { query } = enqueueSongDto;
         const result = await this.youtubeService.searchQuery(query);
-        const songPath = await this.youtubeService.downloadYouTubeMusic(
-            result[0]["url"],
-            query,
-        );
-        await this.enqueueService.enqueueSong(songPath);
+        await this.enqueueService.enqueueSong(result[0].url);
         return query;
     }
 }

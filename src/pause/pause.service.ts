@@ -3,7 +3,11 @@ import { Injectable } from "@nestjs/common";
 
 @Injectable()
 export class PauseService {
-    async pause(): Promise<void> {
-        await vlcApp.vlcService.pause();
+    async pause(pause: boolean): Promise<void> {
+        if (pause) {
+            await vlcApp.vlcService.pause();
+        } else {
+            await vlcApp.vlcService.play();
+        }
     }
 }
