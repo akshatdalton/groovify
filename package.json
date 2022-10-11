@@ -85,6 +85,6 @@
         "testEnvironment": "node"
     },
     "bin": {
-        "grv": "./index.js"
+        "gvy": "bin/gvy"
     }
 }
