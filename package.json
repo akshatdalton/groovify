@@ -34,6 +34,7 @@
         "commander": "^9.3.0",
         "expand-tilde": "^2.0.2",
         "node-vlc-http": "^1.2.0",
+        "node-youtube-music": "^0.7.0",
         "reflect-metadata": "^0.1.13",
         "rimraf": "^3.0.2",
         "rxjs": "^7.2.0",

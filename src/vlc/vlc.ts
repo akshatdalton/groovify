@@ -12,7 +12,7 @@ class Vlc {
         const ip = await internalIp.v4();
         const port = await getPort();
         // This has to be `dummy` else a vlc app (prompt) would open up.
-        const intf = "dummy";
+        const intf = "macosx";
         const vlcPath = await this.getVlcPath();
         this.vlcServerInstance = execa(vlcPath, [
             "--intf",

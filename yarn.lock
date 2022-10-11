@@ -4365,6 +4365,13 @@ node-vlc-http@^1.2.0:
   resolved "https://registry.yarnpkg.com/node-vlc-http/-/node-vlc-http-1.2.0.tgz#b160c335bd485e503c7b91ecd753e3d615562487"
   integrity sha512-lThjWN/yN4YlWqMYEiZ4iUHtrxczDMdTbQzCp1MAxaNxAtViK7R2yzW6D5dhtkZzrlGz6lbKGcdtciD0TFRpuQ==
 
+node-youtube-music@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/node-youtube-music/-/node-youtube-music-0.7.0.tgz#f43230b87a79f17d3bd12ef8ae3c4ed7a9b187d8"
+  integrity sha512-ih0OEe+bnOlLaUHEKutFG4WRFMFxph7sGRe32rRp2tRoCJBb3JwLPUpj59crunMuQ/Q0GII2U4B5cyBGH9kEsA==
+  dependencies:
+    got "^11.8.2"
+
 normalize-path@^3.0.0, normalize-path@~3.0.0:
   version "3.0.0"
   resolved "https://registry.npmjs.org/normalize-path/-/normalize-path-3.0.0.tgz"

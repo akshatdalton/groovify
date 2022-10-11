@@ -5,7 +5,7 @@ import * as commander from "commander";
 
 export const connectCommand = new commander.Command("connect");
 
-connectCommand.description("connect the app").action(async () => {
+connectCommand.description("connect the bot").action(async () => {
     // Stop any already running app.
     stop_app();
     const args = ["start"];

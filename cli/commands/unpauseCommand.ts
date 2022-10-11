@@ -1,9 +1,9 @@
 import { server } from "../utils";
 import * as commander from "commander";
 
-export const backCommand = new commander.Command("back");
+export const unpauseCommand = new commander.Command("unpause");
 
-backCommand.description("Resumes playback").action(async () => {
+unpauseCommand.description("Resumes playback").action(async () => {
     await server.put("/pause", {
         pause: false,
     });
