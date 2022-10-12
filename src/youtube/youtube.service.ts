@@ -6,13 +6,7 @@ import ytdl from "ytdl-core";
 import { get_base_filepath } from "src/utils/utils";
 import * as ytMusic from "node-youtube-music";
 import { MusicVideo } from "node-youtube-music";
-
-interface YouTubeResults {
-    url: string;
-    title: string;
-    duration: string;
-    thumbnailUrl: string;
-}
+import { YouTubeResult } from "./../interfaces/youtubeResult";
 
 @Injectable()
 export class YoutubeService {
@@ -24,7 +18,7 @@ export class YoutubeService {
         // TODO: Define a common structure/interface for
         // what should be returned by `getYouTubeVideosByQuery`
         // function and `getYouTubeMusicByQuery` function.
-        let results: YouTubeResults[] = [];
+        let results: YouTubeResult[] = [];
         try {
             // package: `node-youtube-music` uses api key to search,
             // so we must be careful about youtube quota limit.
@@ -37,11 +31,11 @@ export class YoutubeService {
         return results;
     }
 
-    private mapYouTubeVideosToMusics(videos: any[]): YouTubeResults[] {
+    private mapYouTubeVideosToMusics(videos: any[]): YouTubeResult[] {
         // There is a slight chance that this modification
         // would not work depending on the video if it's
         // YouTube music version is available or not.
-        const musics: YouTubeResults[] = videos.map((video) => ({
+        const musics: YouTubeResult[] = videos.map((video) => ({
             url: `https://music.youtube.com/watch?v=${video.id.videoId}`,
             title: video.title,
             duration: video.duration_raw,
@@ -52,17 +46,17 @@ export class YoutubeService {
 
     private async getYouTubeVideosByQuery(
         query: string,
-    ): Promise<YouTubeResults[]> {
+    ): Promise<YouTubeResult[]> {
         const videos = await yt.search(query);
         return this.mapYouTubeVideosToMusics(videos);
     }
 
     private async getYouTubeMusicByQuery(
         query: string,
-    ): Promise<YouTubeResults[]> {
+    ): Promise<YouTubeResult[]> {
         const musics: MusicVideo[] = await ytMusic.searchMusics(query);
         return musics.map(
-            (music: MusicVideo): YouTubeResults => ({
+            (music: MusicVideo): YouTubeResult => ({
                 url: `https://music.youtube.com/watch?v=${music.youtubeId}`,
                 title: music.title,
                 duration: music.duration.label,
