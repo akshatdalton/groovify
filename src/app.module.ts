@@ -30,6 +30,9 @@ import { LoopQueueController } from "./loop-queue/loop-queue.controller";
 import { LoopSongModule } from "./loop-song/loop-song.module";
 import { LoopSongService } from "./loop-song/loop-song.service";
 import { LoopSongController } from "./loop-song/loop-song.controller";
+import { JumpModule } from "./jump/jump.module";
+import { JumpService } from "./jump/jump.service";
+import { JumpController } from "./jump/jump.controller";
 
 @Module({
     imports: [
@@ -43,6 +46,7 @@ import { LoopSongController } from "./loop-song/loop-song.controller";
         ClearModule,
         LoopQueueModule,
         LoopSongModule,
+        JumpModule,
     ],
     controllers: [
         AppController,
@@ -55,6 +59,7 @@ import { LoopSongController } from "./loop-song/loop-song.controller";
         ClearController,
         LoopQueueController,
         LoopSongController,
+        JumpController,
     ],
     providers: [
         AppService,
@@ -68,6 +73,7 @@ import { LoopSongController } from "./loop-song/loop-song.controller";
         ClearService,
         LoopQueueService,
         LoopSongService,
+        JumpService,
     ],
 })
 export class AppModule {}

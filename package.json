@@ -42,7 +42,6 @@
         "reflect-metadata": "^0.1.13",
         "rimraf": "^3.0.2",
         "rxjs": "^7.2.0",
-        "valid-url": "^1.0.9",
         "vlc-client": "^1.0.6",
         "vlc-command": "^1.2.0",
         "vlc-simple-player": "^0.5.1",

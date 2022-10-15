@@ -9,6 +9,7 @@ import { loopCommand } from "./commands/loopCommand/index";
 import { unpauseCommand } from "./commands/unpauseCommand";
 import { pauseCommand } from "./commands/pauseCommand";
 import { clearCommand } from "./commands/clearCommand";
+import { jumpCommand } from "./commands/jumpCommand";
 import { program } from "commander";
 
 program.version("1.0.0").description("Groovify - CLI Music Bot");
@@ -20,6 +21,7 @@ program.addCommand(pauseCommand);
 program.addCommand(unpauseCommand);
 program.addCommand(skipCommand);
 program.addCommand(backCommand);
+program.addCommand(jumpCommand);
 program.addCommand(loopCommand);
 program.addCommand(clearCommand);
 // Add a command for gvy ping -> this will return a health status OK if everything OK:

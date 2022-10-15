@@ -40,6 +40,10 @@ export class YoutubeService {
         return results;
     }
 
+    isValidUrl(url: string): boolean {
+        return ytdl.validateURL(url);
+    }
+
     private mapYouTubeVideosToMusics(videos: any[]): YouTubeResult[] {
         // There is a slight chance that this modification
         // would not work depending on the video if it's

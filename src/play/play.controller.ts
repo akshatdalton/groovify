@@ -17,7 +17,7 @@ export class PlayController {
         @Body() playSongDto: PlaySongDto,
     ): Promise<boolean | YouTubeResult[]> {
         const { query } = playSongDto;
-        if (validUrl.isUri(query)) {
+        if (this.youtubeService.isValidUrl(query)) {
             const isPlayed = await this.playService.play(query);
             return isPlayed;
         }
