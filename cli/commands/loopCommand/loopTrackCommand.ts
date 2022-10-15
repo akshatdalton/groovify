@@ -11,7 +11,7 @@ loopTrackCommand
         // TODO: Check if this is working properly or not.
         try {
             await server.patch("/loop-song", {
-                loop: options.off,
+                loop: !options.off,
             });
         } catch (e) {
             if (e.code === Status.ECONNREFUSED) {

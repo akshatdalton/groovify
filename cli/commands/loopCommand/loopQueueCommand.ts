@@ -8,6 +8,6 @@ loopQueueCommand
     .option("--off", "Turn off looping your current queue", false)
     .action(async (options) => {
         await server.patch("/loop-song", {
-            loop: options.off,
+            loop: !options.off,
         });
     });

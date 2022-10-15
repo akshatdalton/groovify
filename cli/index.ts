@@ -10,6 +10,8 @@ import { unpauseCommand } from "./commands/unpauseCommand";
 import { pauseCommand } from "./commands/pauseCommand";
 import { clearCommand } from "./commands/clearCommand";
 import { jumpCommand } from "./commands/jumpCommand";
+import { removeCommand } from "./commands/removeCommand";
+import { shuffleCommand } from "./commands/shuffleCommand";
 import { program } from "commander";
 
 program.version("1.0.0").description("Groovify - CLI Music Bot");
@@ -23,6 +25,8 @@ program.addCommand(skipCommand);
 program.addCommand(backCommand);
 program.addCommand(jumpCommand);
 program.addCommand(loopCommand);
+program.addCommand(removeCommand);
+program.addCommand(shuffleCommand);
 program.addCommand(clearCommand);
 // Add a command for gvy ping -> this will return a health status OK if everything OK:
 // - NestJS server running
