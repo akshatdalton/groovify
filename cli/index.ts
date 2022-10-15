@@ -12,6 +12,7 @@ import { clearCommand } from "./commands/clearCommand";
 import { jumpCommand } from "./commands/jumpCommand";
 import { removeCommand } from "./commands/removeCommand";
 import { shuffleCommand } from "./commands/shuffleCommand";
+import { seekCommand } from "./commands/seekCommand";
 import { program } from "commander";
 
 program.version("1.0.0").description("Groovify - CLI Music Bot");
@@ -23,6 +24,7 @@ program.addCommand(pauseCommand);
 program.addCommand(unpauseCommand);
 program.addCommand(skipCommand);
 program.addCommand(backCommand);
+program.addCommand(seekCommand);
 program.addCommand(jumpCommand);
 program.addCommand(loopCommand);
 program.addCommand(removeCommand);
