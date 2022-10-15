@@ -7,17 +7,25 @@ import { get_base_filepath } from "src/utils/utils";
 import * as ytMusic from "node-youtube-music";
 import { MusicVideo } from "node-youtube-music";
 import { YouTubeResult } from "./../interfaces/youtubeResult";
+import LRU from "lru-cache";
+
+/* 
+ Observed that we may query the same
+ thing done in previous 3 attempts.
+ */
+const cache = new LRU({ max: 3 });
 
 @Injectable()
 export class YoutubeService {
-    async searchQuery(query: string) {
+    async searchQuery(query: string): Promise<YouTubeResult[]> {
+        // Add decorator for query preparator and lru cache.
         if (!query.includes("song") || !query.includes("music")) {
-            // Force YouTube to provide results related to `music`.
-            query += " music";
+            // Force YouTube APIs to provide results related to `song`.
+            query += " song";
         }
-        // TODO: Define a common structure/interface for
-        // what should be returned by `getYouTubeVideosByQuery`
-        // function and `getYouTubeMusicByQuery` function.
+        if (cache.has(query)) {
+            return await cache.get(query);
+        }
         let results: YouTubeResult[] = [];
         try {
             // package: `node-youtube-music` uses api key to search,
@@ -28,6 +36,7 @@ export class YoutubeService {
                 results = await this.getYouTubeVideosByQuery(query);
             } catch (e) {}
         }
+        cache.set(query, results);
         return results;
     }
 

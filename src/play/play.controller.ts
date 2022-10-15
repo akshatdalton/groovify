@@ -15,11 +15,11 @@ export class PlayController {
     @Post()
     async playSong(
         @Body() playSongDto: PlaySongDto,
-    ): Promise<void | YouTubeResult[]> {
+    ): Promise<boolean | YouTubeResult[]> {
         const { query } = playSongDto;
         if (validUrl.isUri(query)) {
-            await this.playService.play(query);
-            return;
+            const isPlayed = await this.playService.play(query);
+            return isPlayed;
         }
         const result: YouTubeResult[] = await this.youtubeService.searchQuery(
             query,

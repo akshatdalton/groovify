@@ -11,7 +11,7 @@ class Vlc {
         const password = uniqueString();
         const ip = await internalIp.v4();
         const port = await getPort();
-        // This has to be `dummy` else a vlc app (prompt) would open up.
+        // This has to be `http/dummy` else a vlc app (prompt/interface) would open up.
         const intf = "macosx";
         const vlcPath = await this.getVlcPath();
         this.vlcServerInstance = execa(vlcPath, [

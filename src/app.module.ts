@@ -10,9 +10,6 @@ import { PauseModule } from "./pause/pause.module";
 import { SeekController } from "./seek/seek.controller";
 import { SeekService } from "./seek/seek.service";
 import { SeekModule } from "./seek/seek.module";
-import { EnqueueController } from "./enqueue/enqueue.controller";
-import { EnqueueService } from "./enqueue/enqueue.service";
-import { EnqueueModule } from "./enqueue/enqueue.module";
 import { YoutubeModule } from "./youtube/youtube.module";
 import { YoutubeService } from "./youtube/youtube.service";
 import { QueueModule } from "./queue/queue.module";
@@ -39,7 +36,6 @@ import { LoopSongController } from "./loop-song/loop-song.controller";
         PlayModule,
         PauseModule,
         SeekModule,
-        EnqueueModule,
         YoutubeModule,
         QueueModule,
         SkipModule,
@@ -53,7 +49,6 @@ import { LoopSongController } from "./loop-song/loop-song.controller";
         PlayController,
         PauseController,
         SeekController,
-        EnqueueController,
         QueueController,
         SkipController,
         BackController,
@@ -66,7 +61,6 @@ import { LoopSongController } from "./loop-song/loop-song.controller";
         PlayService,
         PauseService,
         SeekService,
-        EnqueueService,
         YoutubeService,
         QueueService,
         SkipService,
