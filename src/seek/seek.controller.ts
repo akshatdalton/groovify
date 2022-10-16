@@ -26,7 +26,7 @@ export class SeekController {
                 expr = "mm:ss";
                 break;
             case 3:
-                expr = "hh:mm:ss";
+                expr = "HH:mm:ss";
                 break;
             default:
                 // raise validation error that string format nor supported.
