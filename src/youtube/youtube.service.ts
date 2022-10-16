@@ -2,11 +2,11 @@ import { Injectable } from "@nestjs/common";
 import fs from "fs";
 import path from "path";
 import * as yt from "youtube-search-without-api-key";
-import ytdl from "ytdl-core";
+import ytdl, { thumbnail, videoInfo } from "ytdl-core";
 import { get_base_filepath } from "src/utils/utils";
 import * as ytMusic from "node-youtube-music";
 import { MusicVideo } from "node-youtube-music";
-import { YouTubeResult } from "./../interfaces/youtubeResult";
+import { maxThumbnailSize, YouTubeResult } from "./../interfaces/youtubeResult";
 import LRU from "lru-cache";
 
 /* 
@@ -76,6 +76,30 @@ export class YoutubeService {
                 thumbnailUrl: music.thumbnailUrl,
             }),
         );
+    }
+
+    async getYoutubeUrlInfo(url: string): Promise<YouTubeResult> {
+        const getThumbnailUrl = (thumbnails: thumbnail[]): string => {
+            for (let index = thumbnails.length - 1; index >= 0; --index) {
+                const _thumbnail = thumbnails[index];
+                if (
+                    _thumbnail.width < maxThumbnailSize ||
+                    _thumbnail.height < maxThumbnailSize
+                ) {
+                    return _thumbnail.url;
+                }
+            }
+            return thumbnails[0].url;
+        };
+
+        const response: videoInfo = await ytdl.getInfo(url);
+        const videoDetails = response.videoDetails;
+        return {
+            url,
+            title: videoDetails.title,
+            duration: videoDetails.lengthSeconds,
+            thumbnailUrl: getThumbnailUrl(videoDetails.thumbnails),
+        };
     }
 
     private async downloadYouTubeMusic(

@@ -1110,11 +1110,6 @@
   dependencies:
     "@types/node" "*"
 
-"@types/valid-url@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@types/valid-url/-/valid-url-1.0.3.tgz#a124389fb953559c7f889795a98620e91adb3687"
-  integrity sha512-+33x29mg+ecU88ODdWpqaie2upIuRkhujVLA7TuJjM823cNMbeggfI6NhxewaRaRF8dy+g33e4uIg/m5Mb3xDQ==
-
 "@types/webpack@^5.28.0":
   version "5.28.0"
   resolved "https://registry.npmjs.org/@types/webpack/-/webpack-5.28.0.tgz"

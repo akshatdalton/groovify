@@ -1,17 +1,30 @@
 import { Injectable } from "@nestjs/common";
-import { PlaylistEntry } from "vlc-client/dist/Types";
 import { vlcApp } from "./../vlc/vlc";
+import { YouTubeResult } from "./../interfaces/youtubeResult";
+import { YoutubeService } from "../youtube/youtube.service";
 
 @Injectable()
 export class QueueService {
-    async getPlaylist() {
-        const vlcPlaylist = await vlcApp.vlcService.getPlaylist();
-        return vlcPlaylist.map((item: PlaylistEntry) => {
-            return {
-                name: item.name,
-                duration: item.duration,
-                isCurrent: item.isCurrent,
-            };
-        });
+    constructor(private readonly youtubeService: YoutubeService) {}
+
+    getPlaylist(): YouTubeResult[] {
+        return vlcApp.playlist;
+    }
+
+    async addSongUrl(url: string): Promise<void> {
+        const songInfo = await this.youtubeService.getYoutubeUrlInfo(url);
+        vlcApp.playlist.push(songInfo);
+    }
+
+    removeSong(entry_id: number): void {
+        vlcApp.playlist.splice(entry_id, 1);
+    }
+
+    clearPlaylist(): void {
+        vlcApp.playlist = [];
+    }
+
+    get length() {
+        return vlcApp.playlist.length;
     }
 }

@@ -1,8 +1,11 @@
 import * as VLC from "vlc-client";
+import { YouTubeResult } from "./../interfaces/youtubeResult";
 
 class Vlc {
     private vlcServerInstance: any;
     public vlcService: any;
+    public playlist: YouTubeResult[] = [];
+
     async createVlcApp(): Promise<void> {
         const uniqueString = (await eval(`import('unique-string')`)).default;
         const internalIp = (await eval(`import('internal-ip')`)).default;

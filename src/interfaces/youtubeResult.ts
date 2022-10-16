@@ -6,3 +6,4 @@ export interface YouTubeResult {
 }
 
 export const topNResults = 5;
+export const maxThumbnailSize = 500;

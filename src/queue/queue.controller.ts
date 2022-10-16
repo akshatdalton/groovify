@@ -6,8 +6,7 @@ export class QueueController {
     constructor(private readonly queueService: QueueService) {}
 
     @Get()
-    async getPlaylist() {
-        // add return type: Partial of PlaylistEntry
-        return await this.queueService.getPlaylist();
+    getPlaylist() {
+        return this.queueService.getPlaylist();
     }
 }
