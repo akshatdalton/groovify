@@ -44,7 +44,6 @@
         "rxjs": "^7.2.0",
         "vlc-client": "^1.0.6",
         "vlc-command": "^1.2.0",
-        "vlc-simple-player": "^0.5.1",
         "webpack": "^5.73.0",
         "youtube-search-without-api-key": "^1.0.7",
         "ytdl-core": "^4.11.2"

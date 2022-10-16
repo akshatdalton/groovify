@@ -1,5 +1,6 @@
 import * as VLC from "vlc-client";
 import { YouTubeResult } from "./../interfaces/youtubeResult";
+import { PlaylistEntry } from "vlc-client/dist/Types";
 
 class Vlc {
     private vlcServerInstance: any;
@@ -38,7 +39,7 @@ class Vlc {
         });
     }
 
-    async getVlcPath() {
+    private async getVlcPath() {
         const vlcCommand = (await eval(`import('vlc-command')`)).default;
         return new Promise((resolve, reject) => {
             vlcCommand((err: string, vlcPath: string) => {
@@ -49,6 +50,11 @@ class Vlc {
                 }
             });
         });
+    }
+
+    async getCurrentlyPlayingIndexFromPlaylist(): Promise<number> {
+        const playlist: PlaylistEntry[] = await this.vlcService.getPlaylist();
+        return playlist.findIndex((item: PlaylistEntry) => item.isCurrent);
     }
 
     killServer() {

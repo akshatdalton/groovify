@@ -39,6 +39,9 @@ import { RemoveService } from "./remove/remove.service";
 import { ShuffleModule } from "./shuffle/shuffle.module";
 import { ShuffleService } from "./shuffle/shuffle.service";
 import { ShuffleController } from "./shuffle/shuffle.controller";
+import { SongModule } from "./song/song.module";
+import { SongController } from "./song/song.controller";
+import { SongService } from "./song/song.service";
 
 @Module({
     imports: [
@@ -55,6 +58,7 @@ import { ShuffleController } from "./shuffle/shuffle.controller";
         JumpModule,
         RemoveModule,
         ShuffleModule,
+        SongModule,
     ],
     controllers: [
         AppController,
@@ -70,6 +74,7 @@ import { ShuffleController } from "./shuffle/shuffle.controller";
         JumpController,
         RemoveController,
         ShuffleController,
+        SongController,
     ],
     providers: [
         AppService,
@@ -86,6 +91,7 @@ import { ShuffleController } from "./shuffle/shuffle.controller";
         JumpService,
         RemoveService,
         ShuffleService,
+        SongService,
     ],
 })
 export class AppModule {}
