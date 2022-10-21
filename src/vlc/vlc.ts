@@ -16,7 +16,7 @@ class Vlc {
         const ip = await internalIp.v4();
         const port = await getPort();
         // This has to be `http/dummy` else a vlc app (prompt/interface) would open up.
-        const intf = "macosx";
+        const intf = this.getVlcInterface();
         const vlcPath = await this.getVlcPath();
         this.vlcServerInstance = execa(vlcPath, [
             "--intf",
@@ -50,6 +50,18 @@ class Vlc {
                 }
             });
         });
+    }
+
+    private getVlcInterface(): string {
+        // return "http"; // return "dummy";
+        switch (process.platform) {
+            case "darwin":
+                return "macosx";
+            case "linux":
+                return "qt";
+            case "win32":
+                return "qt";
+        }
     }
 
     async getCurrentlyPlayingIndexFromPlaylist(): Promise<number> {

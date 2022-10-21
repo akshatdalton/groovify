@@ -1,6 +1,6 @@
 import { handleServerResponse, server } from "../utils";
 import * as commander from "commander";
-// import inquirer from "inquirer";
+import inquirer from "inquirer";
 
 export const playCommand = new commander.Command("play");
 
@@ -24,7 +24,6 @@ playCommand
             return;
         }
         const serach_results = response.data;
-        const inquirer = (await eval(`import('inquirer')`)).default;
         inquirer
             .prompt({
                 type: "list",
@@ -51,3 +50,8 @@ playCommand
                 console.log("Retry");
             });
     });
+
+// ╰─ gvy play "https://www.youtube.com/watch\?v\=PKsI0hjyxC0"
+// ? Select a song to play/enqueue (Use arrow keys)
+//
+// Debug this case

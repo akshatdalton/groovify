@@ -42,6 +42,7 @@ import { ShuffleController } from "./shuffle/shuffle.controller";
 import { SongModule } from "./song/song.module";
 import { SongController } from "./song/song.controller";
 import { SongService } from "./song/song.service";
+import { LyricsModule } from "./lyrics/lyrics.module";
 
 @Module({
     imports: [
@@ -59,6 +60,7 @@ import { SongService } from "./song/song.service";
         RemoveModule,
         ShuffleModule,
         SongModule,
+        LyricsModule,
     ],
     controllers: [
         AppController,
