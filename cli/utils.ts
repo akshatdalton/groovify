@@ -40,7 +40,6 @@ export const getPid = () => {
 
 export const getGroovifyPath = () => {
     const groovifyPath = path.join(__dirname, "..", "..");
-    console.log("groovifyPath = ", groovifyPath);
     return groovifyPath;
 };
 

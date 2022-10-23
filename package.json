@@ -24,7 +24,6 @@
         "@nestjs/common": "^8.0.0",
         "@nestjs/core": "^8.0.0",
         "@nestjs/platform-express": "^8.0.0",
-        "@nestjs/swagger": "^6.1.1",
         "@richienb/vlc": "^3.0.2",
         "@types/axios": "^0.14.0",
         "@types/commander": "^2.12.2",
@@ -52,6 +51,7 @@
     "devDependencies": {
         "@nestjs/cli": "^8.0.0",
         "@nestjs/schematics": "^8.0.0",
+        "@nestjs/swagger": "^6.1.2",
         "@nestjs/testing": "^8.0.0",
         "@types/express": "^4.17.13",
         "@types/jest": "27.5.0",
@@ -88,6 +88,11 @@
         ],
         "coverageDirectory": "../coverage",
         "testEnvironment": "node"
+    },
+    "engines": {
+        "node": ">=18.11.0",
+        "npm": ">=8.19.0",
+        "yarn": ">=1.22.00"
     },
     "bin": {
         "gvy": "bin/gvy"
